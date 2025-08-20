@@ -1,162 +1,145 @@
-/* ================================
-   GLOBAL STYLES
-================================= */
+/* === Global Styles === */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: #fff;
-  color: #333;
+  color: #111;
+  line-height: 1.6;
 }
 
-h1, h2, h3 {
-  font-family: Arial, sans-serif;
-  margin: 0;
-}
-
-/* ================================
-   HEADER
-================================= */
+/* === Header === */
 .site-header {
-  background: linear-gradient(to bottom, #4B0D1A, #2E0A12); /* dark claret gradient */
+  background: linear-gradient(to bottom, #4b0e25, #6a0d37);
   color: white;
   text-align: left;
   padding: 20px;
-  border-bottom: 4px solid #87CEEB; /* thin sky blue line */
+  position: relative;
+  font-weight: bold;
+}
+
+.site-header::after {
+  content: "";
+  display: block;
+  height: 4px;
+  background: #00a8e8; /* thin sky-blue stripe */
+  margin-top: 10px;
 }
 
 .site-header h1 {
-  font-size: 2.5rem;
-  font-weight: bold;
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: 1px;
 }
 
-/* ================================
-   FOOTER
-================================= */
-.site-footer {
-  text-align: center;
-  padding: 20px;
-  background: #f4f4f4;
-  font-size: 0.9rem;
-  color: #666;
-  margin-top: 40px;
-}
-
-/* ================================
-   HOMEPAGE: HERO + SEASON GRID
-================================= */
+/* === Homepage Hero === */
 .hero {
   text-align: center;
-  padding: 60px 20px;
+  padding: 50px 20px;
 }
 
 .hero h2 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: bold;
-  margin-bottom: 40px;
 }
 
+.hero p {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+/* === Homepage Season Grid === */
 .season-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
+  padding: 20px;
 }
 
-.season-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 160px;
-  height: 120px;
-  background: #4B0D1A;
-  color: white;
-  text-decoration: none;
-  font-size: 1.2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  transition: transform 0.2s, background 0.3s;
+.season-card {
+  background: #f5f5f5;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 }
 
-.season-box:hover {
+.season-card:hover {
   transform: translateY(-5px);
-  background: #2E0A12;
 }
 
-/* ================================
-   SEASON PAGE CONTENT
-================================= */
+.season-card h3 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.season-card a {
+  text-decoration: none;
+  color: #6a0d37;
+  font-weight: bold;
+}
+
+/* === Season Page Layout === */
 .season-page {
   max-width: 1000px;
-  margin: 0 auto;
-  padding: 40px 20px;
+  margin: auto;
+  padding: 20px;
 }
 
 .season-page h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 .season-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 30px;
-  margin-top: 20px;
-}
-
-.season-card {
-  background: #fff;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.season-card h3 {
-  font-size: 1.4rem;
-  margin-bottom: 15px;
-  font-weight: bold;
-}
-
-.season-card a {
-  color: #4B0D1A;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.season-card a:hover {
-  text-decoration: underline;
+  gap: 20px;
 }
 
 .season-card img {
   max-width: 100%;
   border-radius: 8px;
+  margin-top: 10px;
 }
 
-/* ================================
-   NAVIGATION (BOTTOM OF SEASON PAGES)
-================================= */
+/* === Season Navigation (pill-style) === */
 .season-nav {
-  margin-top: 40px;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 30px 0;
+  flex-wrap: wrap;
 }
 
 .season-nav a {
-  display: inline-block;
-  margin: 5px;
-  padding: 8px 16px;
-  background: #eee;
-  border-radius: 20px; /* rounded pill look */
+  background: #6a0d37; /* dark claret */
+  color: white;
+  padding: 10px 18px;
+  border-radius: 25px; /* pill shape */
   text-decoration: none;
-  color: #333;
-  font-size: 14px;
-  transition: background 0.3s;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: background 0.3s, transform 0.2s;
 }
 
 .season-nav a:hover {
-  background: #ddd;
+  background: #8a2a4d; /* lighter claret hover */
+  transform: translateY(-2px);
 }
 
 .season-nav a.active {
-  background: #4B0D1A;
-  color: white;
+  background: #00a8e8; /* sky blue highlight */
+  color: #111;
+}
+
+/* === Footer === */
+.site-footer {
+  text-align: center;
+  padding: 20px;
+  background: #f5f5f5;
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 40px;
 }

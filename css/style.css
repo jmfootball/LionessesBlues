@@ -1,192 +1,197 @@
 /* ------------------------------
    Global Styles
 ------------------------------ */
-body {
-  font-family: Arial, sans-serif;
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background: #ffffff; /* white background */
-  color: #111;
+}
+
+body {
+  font-family: Arial, sans-serif;
   line-height: 1.6;
-}
-
-h1, h2, h3 {
-  margin: 0 0 1rem;
-  text-transform: uppercase;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+  background: #ffffff;
+  color: #333;
 }
 
 /* ------------------------------
-   Header
+   Header Styling
 ------------------------------ */
 .site-header {
-  background: linear-gradient(to bottom, #4a0e26, #2d0817); /* dark claret gradient */
+  background: linear-gradient(to bottom, #4a0e26, #32091b); /* dark claret gradient */
   color: white;
-  padding: 2rem;
   text-align: center;
+  padding: 2rem 1rem;
   position: relative;
+  text-transform: uppercase;
 }
 
 .site-header::after {
   content: "";
   display: block;
-  height: 5px; /* thin sky blue stripe */
-  width: 100%;
-  background: #87ceeb;
+  height: 4px;
+  background: #87ceeb; /* thin sky blue stripe */
   position: absolute;
   bottom: 0;
   left: 0;
+  right: 0;
 }
 
 .site-header h1 {
   font-size: 2.5rem;
-  margin: 0;
+  font-weight: bold;
+}
+
+/* ------------------------------
+   Navigation Bar (Season Pages)
+------------------------------ */
+.season-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  background: #4a0e26;
+  padding: 0.75rem;
+}
+
+.season-nav a {
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.season-nav a:hover {
+  background: #32091b;
+}
+
+/* ------------------------------
+   Homepage Layout
+------------------------------ */
+.homepage {
+  text-align: center;
+  padding: 2rem;
+}
+
+.homepage-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: bold;
+}
+
+.season-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+}
+
+.season-box {
+  background: #4a0e26;
+  color: white;
+  text-decoration: none;
+  padding: 2rem 1rem;
   font-weight: bold;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  opacity: 0;
-  animation: fadeInUp 1.2s ease forwards;
+  border-radius: 8px;
+  transition: transform 0.3s, background 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Animation for header text */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.season-box:hover {
+  background: #32091b;
+  transform: scale(1.05);
 }
 
 /* ------------------------------
-   Homepage Styles
------------------------------- */
-.home-intro {
-  text-align: center;
-  padding: 3rem 1rem;
-}
-
-.home-intro h2 {
-  font-size: 1.5rem;
-  font-weight: normal;
-}
-
-.season-links {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-  padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.season-card {
-  background: #f8f8f8;
-  border-radius: 12px;
-  padding: 2rem;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.season-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-}
-
-.season-card h3 {
-  font-size: 1.2rem;
-  margin: 0;
-  font-weight: bold;
-}
-
-/* ------------------------------
-   Season Page Styles
+   Season Page Layout
 ------------------------------ */
 main {
-  max-width: 1000px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-}
-
-.season-title {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.season-section {
-  margin-bottom: 3rem;
-}
-
-.season-section h2 {
-  margin-bottom: 1rem;
-  font-size: 1.4rem;
-}
-
-.season-img {
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-/* Two-column intro (league table + summary) */
-.season-intro {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 2rem;
-  margin-bottom: 3rem;
-}
-
-.click-card {
-  background: #f8f8f8;
-  border-radius: 8px;
-  text-align: center;
   padding: 2rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.click-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-}
-
-.click-card p {
-  font-weight: bold;
-  color: #4a0e26;
+main h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
   text-transform: uppercase;
+  color: #4a0e26;
+}
+
+.section {
+  margin-bottom: 2.5rem;
+}
+
+.section h3 {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #4a0e26;
+}
+
+/* Final Table + Summary layout */
+.table-summary {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.final-table-link {
+  flex: 1 1 200px;
+  background: #4a0e26;
+  color: white;
+  text-decoration: none;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.final-table-link:hover {
+  background: #32091b;
+  transform: scale(1.05);
 }
 
 .summary-box {
-  background: #f8f8f8;
+  flex: 2 1 400px;
+  background: #f5f5f5;
+  padding: 1.5rem;
   border-radius: 8px;
-  padding: 2rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  color: #333;
+}
+
+/* Image sections (Stats & Teamsheet) */
+.section img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
 }
 
 /* Gallery */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 1rem;
 }
 
 .gallery img {
+  width: 100%;
   border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-/* Back link */
-.back-home {
-  text-align: cen
+/* ------------------------------
+   Footer
+------------------------------ */
+.site-footer {
+  text-align: center;
+  padding: 1rem;
+  background: #f5f5f5;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+}

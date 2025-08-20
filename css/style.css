@@ -1,67 +1,115 @@
-/* GLOBAL STYLES */
-body {
-  margin: 0;
-  font-family: 'Oswald', sans-serif;
-  color: white;
-  background: linear-gradient(180deg, #2c0000, #1a1a1a);
-  background-attachment: fixed;
+/* ========== Base / Typography ========== */
+:root{
+  --claret: #6a0d2f;
+  --sky: #87ceeb;
+  --text: #111;
+  --muted: #666;
+  --card-shadow: rgba(0,0,0,0.08);
+  --card-shadow-hover: rgba(0,0,0,0.15);
 }
 
-/* HERO HEADER */
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #ffffff;                 /* Apple-clean body */
+  color: var(--text);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;                    /* Light for body copy */
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased; /* crisper text on macOS */
+  text-rendering: optimizeLegibility;
+}
+
+/* ========== Hero (Header) ========== */
+/* Claret header with exactly 5 thin vertical sky-blue stripes */
 .hero {
+  position: relative;
+  color: #fff;
   text-align: center;
-  padding: 100px 20px 50px;
+  padding: 72px 20px 56px;
+  background:
+    /* 5 thin stripes placed across the width */
+    linear-gradient(
+      to right,
+      var(--claret) 0%,
+      var(--claret) 16%,
+      var(--sky)    16%, var(--sky) 17%,   /* stripe 1 */
+      var(--claret) 17%, var(--claret) 34%,
+      var(--sky)    34%, var(--sky) 35%,   /* stripe 2 */
+      var(--claret) 35%, var(--claret) 50%,
+      var(--sky)    50%, var(--sky) 51%,   /* stripe 3 (center) */
+      var(--claret) 51%, var(--claret) 68%,
+      var(--sky)    68%, var(--sky) 69%,   /* stripe 4 */
+      var(--claret) 69%, var(--claret) 84%,
+      var(--sky)    84%, var(--sky) 85%,   /* stripe 5 */
+      var(--claret) 85%, var(--claret) 100%
+    );
 }
 
 .hero h1 {
-  font-size: 4rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  margin-bottom: 10px;
+  margin: 0 0 8px;
+  font-weight: 700;       /* Bold for titles */
+  font-size: 3rem;
+  letter-spacing: 1px;
   text-transform: uppercase;
 }
 
 .hero p {
-  font-size: 1.4rem;
-  color: #ddd;
   margin: 0;
+  font-size: 1.1rem;
+  font-weight: 300;       /* Light */
+  color: #f0f0f0;
 }
 
-/* SEASON GRID */
+/* ========== Season Cards (Apple-style) ========== */
 .season-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
+  gap: 28px;
   max-width: 1000px;
-  margin: 0 auto;
-  padding: 60px 20px;
+  margin: 64px auto;
+  padding: 0 20px;
 }
 
 .season-card {
   display: flex;
-  justify-content: center;
   align-items: center;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  padding: 50px 20px;
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: white;
+  justify-content: center;
   text-decoration: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: var(--text);
+  background: #fff;
+  border-radius: 20px;
+  padding: 48px 20px;
+  font-size: 1.6rem;
+  font-weight: 700;       /* Bold label on the card */
+  box-shadow: 0 6px 20px var(--card-shadow);
+  transition: transform .25s ease, box-shadow .25s ease;
 }
 
 .season-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px var(--card-shadow-hover);
 }
 
-/* FOOTER */
+/* ========== Footer ========== */
 footer {
   text-align: center;
   padding: 40px 20px;
+  background: #f5f5f5;
+  color: var(--muted);
   font-size: 0.9rem;
-  color: #aaa;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid #eee;
+}
+
+/* ======= Safety: neutralize any old global overrides ======= */
+/* If you previously had `* { color:#fff !important; }` or `body { text-transform: uppercase; }`,
+   these ensure the new design wins. */
+body, * {
+  text-transform: none !important;
+  color: inherit !important;
 }

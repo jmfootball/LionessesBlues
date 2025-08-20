@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>2024–25 Season | Lionesses Blues</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
   <!-- HEADER -->
@@ -12,38 +12,58 @@
     <h1>Lionesses Blues</h1>
   </header>
 
-  <!-- NAVIGATION (between seasons + home) -->
-  <nav class="season-nav" style="text-align:center; margin:1.5rem 0;">
-    <a href="index.html">Home</a> |
-    <a href="2020-21.html">2020–21</a> |
-    <a href="2021-22.html">2021–22</a> |
-    <a href="2022-23.html">2022–23</a> |
-    <a href="2023-24.html">2023–24</a> |
-    <strong>2024–25</strong>
-  </nav>
-
   <!-- MAIN CONTENT -->
-  <main>
-    <!-- Final Season Table + Summary -->
-    <section class="season-layout">
-      <!-- Final Season Table -->
+  <main class="season-page">
+    <h2>2024–25 Season</h2>
+
+    <!-- Season Content Grid -->
+    <div class="season-content">
+      <!-- Left: Final Season Table -->
       <div class="season-card">
-        <h2 class="section-title">Final Season Table</h2>
-        <p>Click below to view the official FA league table:</p>
-        <a href="https://fulltime.thefa.com/index.html?selectedSeason=663369138&selectedFixtureGroupAgeGroup=0&selectedDivision=487876585&selectedCompetition=0" target="_blank">View on FA Website</a>
+        <h3>Final Season Table</h3>
+        <a href="https://fulltime.thefa.com/index.html?selectedSeason=663369138&selectedFixtureGroupAgeGroup=0&selectedDivision=487876585&selectedCompetition=0" 
+           target="_blank" class="fa-link">
+          View FA Full-Time Table
+        </a>
       </div>
 
-      <!-- Season Summary -->
+      <!-- Right: Season Summary -->
       <div class="season-card">
-        <h2 class="section-title">Season Summary</h2>
+        <h3>Season Summary</h3>
         <p>
-          This is where you can add a written recap of the 2024–25 season.  
-          Example: “The Lionesses Blues played their final season with determination, finishing strongly and showing brilliant teamwork throughout. Parents and players enjoyed a memorable closing campaign.”
+          Add your season highlights here. For example: "The team showed great progress with strong performances 
+          in both attack and defense. Memorable victories included..."
         </p>
       </div>
-    </section>
+    </div>
 
-    <!-- Stats & Highlights -->
-    <section class="season-card">
-      <h2 class="section-title">Season Stats & Highlights</h2>
-      <img src="images/2024-25-stats.jpg" alt="Sea
+    <!-- Teamsheet -->
+    <div class="season-card">
+      <h3>Teamsheet</h3>
+      <img src="../images/2024-25-teamsheet-placeholder.jpg" alt="Teamsheet" class="placeholder">
+    </div>
+
+    <!-- Gallery -->
+    <div class="season-card">
+      <h3>Gallery</h3>
+      <p>Upload and share photos from the season.</p>
+      <img src="../images/gallery-placeholder.jpg" alt="Gallery placeholder" class="placeholder">
+    </div>
+
+    <!-- Navigation Links -->
+    <nav class="season-nav">
+      <a href="../index.html">🏠 Home</a>
+      <a href="2020-21.html">2020–21</a>
+      <a href="2021-22.html">2021–22</a>
+      <a href="2022-23.html">2022–23</a>
+      <a href="2023-24.html">2023–24</a>
+      <a href="2024-25.html" class="active">2024–25</a>
+    </nav>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>&copy; Lionesses Blues</p>
+  </footer>
+</body>
+</html>

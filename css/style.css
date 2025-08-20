@@ -62,3 +62,14 @@ footer {
 * {
   color: #fff !important;
 }
+/* Make all links inside section headings bigger and uppercase */
+section h3 a {
+  font-size: 1.5rem;   /* increase font size */
+  text-transform: uppercase; /* all caps */
+  font-weight: bold;   /* stronger weight */
+  text-decoration: none; /* remove underline */
+}
+
+section h3 a:hover {
+  text-decoration: underline; /* subtle hover feedback */
+}

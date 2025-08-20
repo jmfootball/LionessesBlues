@@ -1,142 +1,79 @@
-/* Background with claret + 5 thin sky blue stripes */
+/* === GLOBAL STYLES === */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&display=swap');
+
 body {
   margin: 0;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  color: #fff;
   min-height: 100vh;
-  background-color: #6a0d37; /* dark claret fallback */
+
+  /* Dark claret with 5 soft sky blue stripes */
+  background-color: #6a0d37; /* fallback */
   background-image: repeating-linear-gradient(
     to right,
-    #6a0d37 0%,          /* claret */
-    #6a0d37 18%,         /* claret width */
-    #87ceeb 18%,         /* sky blue stripe start */
-    #87ceeb 20%,         /* thin stripe (2%) */
-    #6a0d37 20%,         /* back to claret */
-    #6a0d37 100%         /* continue claret */
+    #6a0d37 0%,
+    #6a0d37 17%,
+    /* fade into sky blue */
+    rgba(135, 206, 235, 0.9) 18%,
+    rgba(135, 206, 235, 0.9) 20%,
+    /* fade back out */
+    #6a0d37 21%,
+    #6a0d37 100%
   );
-  background-size: 20% 100%; /* 5 stripes evenly across */
+  background-size: 20% 100%; /* 5 evenly spaced stripes */
 }
 
-/* Import Oswald from Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap');
-
-body {
-  margin: 0;
-  font-family: 'Oswald', Arial, sans-serif;
-  background: linear-gradient(to bottom right, #800000, #87CEEB); /* claret → sky blue */
-  min-height: 100vh;
-  color: #fff;
-  line-height: 1.6;
+* {
+  box-sizing: border-box;
+  color: #fff !important;
 }
 
-/* Header & nav */
+h1, h2, h3 {
+  margin: 0 0 16px;
+}
+
+/* === HEADER & NAVIGATION === */
 header {
   text-align: center;
-  padding: 1rem;
-  background: rgba(0, 0, 0, 0.4); /* translucent backdrop */
-  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  letter-spacing: 3px;
+}
+
+nav {
+  margin-top: 10px;
 }
 
 nav a {
-  color: #fff;
+  margin: 0 12px;
   text-decoration: none;
-  margin: 0 0.5rem;
-  font-weight: 500;
+  font-weight: bold;
+  transition: color 0.3s ease;
 }
 
 nav a:hover {
-  text-decoration: underline;
+  color: #87ceeb !important; /* sky blue highlight */
 }
 
-/* Section styling */
-section {
-  background: rgba(255, 255, 255, 0.15); /* frosted look */
-  padding: 1.5rem;
-  margin: 1rem auto;
-  border-radius: 12px;
-  max-width: 900px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-}
-
-/* Headings */
-h1, h2 {
-  color: #fff;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
-}
-
-/* Images */
-img {
-  max-width: 100%;
-  border-radius: 10px;
-  margin: 0.5rem 0;
-}
-
-/* Footer */
-footer {
+/* === MAIN CONTENT === */
+main {
+  padding: 20px;
   text-align: center;
-  padding: 1rem;
-  background: rgba(0, 0, 0, 0.4);
-  border-top: 2px solid rgba(255, 255, 255, 0.3);
-}
-* {
-  color: #fff !important;
-}
-/* Make all links inside section headings bigger and uppercase */
-section h3 a {
-  font-size: 1.5rem;   /* increase font size */
-  text-transform: uppercase; /* all caps */
-  font-weight: bold;   /* stronger weight */
-  text-decoration: none; /* remove underline */
 }
 
-section h3 a:hover {
-  text-decoration: underline; /* subtle hover feedback */
-}
-/* Hover effect for season boxes */
-.season-box {
-  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
-  cursor: pointer;
+/* Welcome section */
+main section:first-of-type p {
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-.season-box:hover {
-  transform: scale(1.05);            /* grow slightly */
-  background-color: rgba(255, 255, 255, 0.15); /* subtle glow */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);   /* lifted effect */
-}
-
-.season-box a {
-  display: block;        /* make link fill box */
-  color: white;          /* keep text white */
-  text-decoration: none; /* remove underline */
-}
-/* Seasons container grid */
-.seasons-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 40px;
-}
-
-.seasons-title {
-  width: 100%;
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 2rem;
-  letter-spacing: 2px;
-}
-/* 1) ALL CAPS + WHITE TEXT SITE-WIDE */
-body { text-transform: uppercase; }
-* { color: #fff !important; }
-
-/* 2) Center the "Explore the Seasons" title */
-.seasons-title {
-  width: 100%;
-  text-align: center;
-  margin: 0 auto 16px;
-  font-size: 1.8rem;
-  letter-spacing: 2px;
-}
-
-/* 3) Smaller SEASON boxes in a neat grid */
+/* === SEASONS GRID === */
 .seasons-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -146,30 +83,45 @@ body { text-transform: uppercase; }
   padding: 0 12px;
 }
 
+.seasons-title {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 16px;
+  letter-spacing: 2px;
+}
+
 .season-box {
   padding: 12px 14px;
   text-align: center;
-  background: rgba(255,255,255,0.12);
+  background: rgba(255, 255, 255, 0.12);
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-  transition: transform .15s ease, box-shadow .15s ease, background-color .15s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
   cursor: pointer;
 }
 
 .season-box a {
-  display: block;              /* make the whole card clickable */
+  display: block;
   text-decoration: none;
 }
 
 .season-box:hover {
   transform: scale(1.04);
-  background-color: rgba(255,255,255,0.18);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.30);
+  background-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
-/* Bigger, bold season titles */
 .season-box h3 {
   font-size: 1.1rem;
-  margin: 0;
   font-weight: 700;
+  margin: 0;
+}
+
+/* === FOOTER === */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.4);
+  font-size: 0.8rem;
 }

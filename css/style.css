@@ -106,3 +106,53 @@ section h3 a:hover {
   font-size: 2rem;
   letter-spacing: 2px;
 }
+/* 1) ALL CAPS + WHITE TEXT SITE-WIDE */
+body { text-transform: uppercase; }
+* { color: #fff !important; }
+
+/* 2) Center the "Explore the Seasons" title */
+.seasons-title {
+  width: 100%;
+  text-align: center;
+  margin: 0 auto 16px;
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+}
+
+/* 3) Smaller SEASON boxes in a neat grid */
+.seasons-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  max-width: 960px;
+  margin: 32px auto 0;
+  padding: 0 12px;
+}
+
+.season-box {
+  padding: 12px 14px;
+  text-align: center;
+  background: rgba(255,255,255,0.12);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  transition: transform .15s ease, box-shadow .15s ease, background-color .15s ease;
+  cursor: pointer;
+}
+
+.season-box a {
+  display: block;              /* make the whole card clickable */
+  text-decoration: none;
+}
+
+.season-box:hover {
+  transform: scale(1.04);
+  background-color: rgba(255,255,255,0.18);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.30);
+}
+
+/* Bigger, bold season titles */
+.season-box h3 {
+  font-size: 1.1rem;
+  margin: 0;
+  font-weight: 700;
+}

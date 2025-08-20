@@ -1,63 +1,92 @@
 /* ------------------------------
-   Base Styles
+   Global Styles
 ------------------------------ */
 body {
+  font-family: Arial, sans-serif;
   margin: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #333;
-  background-color: #fff;
+  padding: 0;
+  background: #ffffff; /* white background */
+  color: #111;
+  line-height: 1.6;
 }
 
-h1, h2 {
+h1, h2, h3 {
   margin: 0 0 1rem;
+  text-transform: uppercase;
 }
 
-h1 {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-h2 {
-  font-weight: 300;
-  font-family: "Helvetica Neue Light", Helvetica, Arial, sans-serif;
-  text-transform: uppercase;
-  font-size: 1.5rem;
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* ------------------------------
    Header
 ------------------------------ */
 .site-header {
-  background: linear-gradient(to right, #6f1d3e, #6f1d3e 18%, #87ceeb 18%, #87ceeb 22%, #6f1d3e 22%, #6f1d3e 40%, #87ceeb 40%, #87ceeb 44%, #6f1d3e 44%, #6f1d3e 66%, #87ceeb 66%, #87ceeb 70%, #6f1d3e 70%, #6f1d3e 88%, #87ceeb 88%, #87ceeb 92%, #6f1d3e 92%, #6f1d3e 100%);
+  background: linear-gradient(to bottom, #4a0e26, #2d0817); /* dark claret gradient */
   color: white;
   padding: 2rem;
   text-align: center;
+  position: relative;
+}
+
+.site-header::after {
+  content: "";
+  display: block;
+  height: 5px; /* thin sky blue stripe */
+  width: 100%;
+  background: #87ceeb;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
 .site-header h1 {
   font-size: 2.5rem;
   margin: 0;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0;
+  animation: fadeInUp 1.2s ease forwards;
+}
+
+/* Animation for header text */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ------------------------------
-   Homepage
+   Homepage Styles
 ------------------------------ */
-.hero {
+.home-intro {
   text-align: center;
-  padding: 2rem 1rem;
+  padding: 3rem 1rem;
 }
 
-.hero h2 {
+.home-intro h2 {
   font-size: 1.5rem;
-  font-weight: bold;
+  font-weight: normal;
 }
 
 .season-links {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
+  gap: 1.5rem;
   padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
@@ -68,80 +97,96 @@ h2 {
   border-radius: 12px;
   padding: 2rem;
   text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-  transition: transform 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .season-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
 }
 
-.season-card a {
-  text-decoration: none;
+.season-card h3 {
+  font-size: 1.2rem;
+  margin: 0;
   font-weight: bold;
-  color: #6f1d3e;
-  text-transform: uppercase;
-  font-size: 1rem;
 }
 
 /* ------------------------------
-   Season Pages
+   Season Page Styles
 ------------------------------ */
 main {
-  padding: 2rem 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
 }
 
 .season-title {
   text-align: center;
-  font-size: 2rem;
   margin-bottom: 2rem;
-  font-weight: bold;
 }
 
 .season-section {
   margin-bottom: 3rem;
 }
 
+.season-section h2 {
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+
+.season-img {
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Two-column intro (league table + summary) */
 .season-intro {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
   gap: 2rem;
-  align-items: flex-start;
+  margin-bottom: 3rem;
 }
 
-.season-left {
-  flex: 1 1 30%;  /* League table card = 1/3 */
-}
-
-.season-right {
-  flex: 1 1 65%;  /* Summary box = 2/3 */
-}
-
-/* League Table Card */
 .click-card {
-  background: #6f1d3e;
-  color: white;
-  border-radius: 10px;
-  padding: 2rem;
+  background: #f8f8f8;
+  border-radius: 8px;
   text-align: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.click-card p {
-  margin: 0;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .click-card:hover {
-  background: #5b1633;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
 }
 
-/* Summary Box */
+.click-card p {
+  font-weight: bold;
+  color: #4a0e26;
+  text-transform: uppercase;
+}
+
 .summary-box {
   background: #f8f8f8;
+  border-radius: 8px;
   padding: 2rem;
-  border-ra
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.gallery img {
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Back link */
+.back-home {
+  text-align: cen

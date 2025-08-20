@@ -73,3 +73,20 @@ section h3 a {
 section h3 a:hover {
   text-decoration: underline; /* subtle hover feedback */
 }
+/* Hover effect for season boxes */
+.season-box {
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.season-box:hover {
+  transform: scale(1.05);            /* grow slightly */
+  background-color: rgba(255, 255, 255, 0.15); /* subtle glow */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);   /* lifted effect */
+}
+
+.season-box a {
+  display: block;        /* make link fill box */
+  color: white;          /* keep text white */
+  text-decoration: none; /* remove underline */
+}

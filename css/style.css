@@ -1,136 +1,67 @@
-/* === FONTS === */
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&display=swap');
-
-/* === THEME COLOURS (tuned to the shirt) === */
-:root{
-  --claret: #6a0d37;        /* main shirt claret */
-  --claret-dark: #520b28;   /* central band tone */
-  --sky: #a9d8f2;           /* sky blue pinstripes */
-}
-
-/* === GLOBAL === */
-* { box-sizing: border-box; color:#fff !important; }
-body{
-  margin:0;
-  min-height:100vh;
-  font-family:'Oswald',sans-serif;
-  text-transform:uppercase;
-  line-height:1.5;
-
-  /* --- BACKGROUND: shirt pattern --- */
-  /* Central darker claret band */
-  --central-band: linear-gradient(
-    to right,
-    transparent calc(50% - 70px),
-    rgba(0,0,0,0.18) calc(50% - 70px),
-    rgba(0,0,0,0.18) calc(50% + 70px),
-    transparent calc(50% + 70px)
-  );
-
-  /* One "group" = three thin sky-blue stripes inside an 80px tile */
-  --stripe-group: repeating-linear-gradient(
-    to right,
-    transparent 0 6px,
-    var(--sky) 6px 7px,     /* stripe 1 */
-    transparent 7px 10px,
-    var(--sky) 10px 11px,   /* stripe 2 */
-    transparent 11px 14px,
-    var(--sky) 14px 15px,   /* stripe 3 */
-    transparent 15px 80px
-  );
-
-  background-color: var(--claret);
-  background-image:
-    var(--central-band),        /* top layer */
-    var(--stripe-group),        /* left outer group  */
-    var(--stripe-group),        /* left inner group  */
-    var(--stripe-group),        /* right inner group */
-    var(--stripe-group);        /* right outer group */
-  background-repeat:
-    no-repeat,
-    no-repeat, no-repeat, no-repeat, no-repeat;
-  background-size:
-    auto,
-    80px 100%, 80px 100%, 80px 100%, 80px 100%;
-  background-position:
-    center,
-    12% 0, 34% 0, 66% 0, 88% 0; /* tweak these % to move groups */
-}
-
-/* === HEADER & NAV === */
-header {
-  text-align: left;
-  padding: 20px;
-  background: transparent; /* keep the shirt-inspired background showing */
-}
-
-header h1 {
+/* GLOBAL STYLES */
+body {
   margin: 0;
-  font-size: 2.8rem;
-  font-weight: bold;
-  letter-spacing: 1.5px;
+  font-family: 'Oswald', sans-serif;
+  color: white;
+  background: linear-gradient(180deg, #2c0000, #1a1a1a);
+  background-attachment: fixed;
 }
 
-nav a:hover{ opacity:.85; }
-
-/* === CONTENT === */
-main{ padding:24px 16px; }
-
-section{
-  background:rgba(255,255,255,0.12);
-  border-radius:12px;
-  box-shadow:0 4px 12px rgba(0,0,0,0.25);
-  padding:16px 18px;
-  margin:12px auto;
-  max-width:900px;
+/* HERO HEADER */
+.hero {
+  text-align: center;
+  padding: 100px 20px 50px;
 }
 
-/* Welcome paragraph sizing */
-main section:first-of-type p{ max-width:640px; margin:0 auto; }
-
-/* === SEASONS GRID === */
-.seasons-container{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(180px,1fr));
-  gap:16px;
-  max-width:960px;
-  margin:32px auto 0;
-  padding:0 12px;
-}
-.seasons-title{
-  grid-column:1 / -1;
-  text-align:center;
-  font-size:1.6rem;
-  margin:0 0 12px;
-  letter-spacing:2px;
-}
-.season-box{
-  text-align:center;
-  background:rgba(255,255,255,0.10);
-  border:2px solid rgba(169,216,242,0.35); /* sky-blue hint */
-  border-radius:12px;
-  padding:12px 14px;
-  box-shadow:0 4px 12px rgba(0,0,0,0.25);
-  transition:transform .15s ease, box-shadow .15s ease, background-color .15s ease, border-color .15s ease;
-  cursor:pointer;
-}
-.season-box a{ display:block; text-decoration:none; }
-.season-box h3{ margin:0; font-size:1.05rem; font-weight:700; letter-spacing:1px; }
-.season-box:hover{
-  transform:scale(1.04);
-  background-color:rgba(255,255,255,0.16);
-  border-color: rgba(169,216,242,0.6);
-  box-shadow:0 8px 16px rgba(0,0,0,0.32);
+.hero h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
 }
 
-/* === IMAGES === */
-img{ max-width:100%; border-radius:10px; }
+.hero p {
+  font-size: 1.4rem;
+  color: #ddd;
+  margin: 0;
+}
 
-/* === FOOTER === */
-footer{
-  text-align:center;
-  padding:20px;
-  background:rgba(0,0,0,0.4);
-  border-top:2px solid rgba(255,255,255,0.25);
-  font-size:.8rem;
+/* SEASON GRID */
+.season-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.season-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 50px 20px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.season-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 0.9rem;
+  color: #aaa;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
